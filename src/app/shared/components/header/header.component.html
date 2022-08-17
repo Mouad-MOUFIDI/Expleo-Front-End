@@ -1,0 +1,34 @@
+<mat-toolbar color="primary">
+    <mat-toolbar-row >
+        <div fxLayout="row" fxLayoutAlign="space-between center">
+            <button mat-button (click)="toggleSideBar()">
+                <mat-icon>menu</mat-icon>
+            </button>
+                <img class="logo" src="../../../../assets/images/expleo.svg" alt="logo" />
+        </div>
+        
+        
+
+        <div class="profile" fxFlex fxLayoutGap="5px" fxLayoutAlign="flex-end center">
+            <img src="../../../../assets/images/Group 4 (2).png" alt="profile">
+            <div class="fullName">
+                <button mat-button [matMenuTriggerFor]="menu"> 
+                    <span fxFlex>KEMMOUS Mohamed</span>
+                    <mat-icon>keyboard_arrow_down</mat-icon>
+                    <mat-menu #menu="matMenu">
+                        <button mat-menu-item>
+                            <mat-icon>exit_to_app</mat-icon>
+                            Sign out
+                        </button>
+                        <button mat-menu-item>
+                            <mat-icon>settings</mat-icon>
+                            Settings
+                        </button>
+                      </mat-menu>
+                </button>
+            </div>
+           
+            
+        </div>
+      </mat-toolbar-row>
+</mat-toolbar>

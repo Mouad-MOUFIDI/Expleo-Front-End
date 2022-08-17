@@ -1,0 +1,27 @@
+.noSoldeClass{
+  background-color: #fa2020;
+  color: #fff;
+  border-radius: 10px;
+  padding: 12px;
+  width: 70px;
+}
+.Solde{
+  background-color: #6745c4;
+  color: #fff;
+  border-radius: 10px;
+  padding: 12px;
+  width: 70px;
+
+  /* 17 */
+  text-align: center;
+}
+
+.text-center {
+  display:flex;
+  justify-content:center;
+  align-items: center;
+  }
+
+.snackbar {
+    color: #6946c6;
+  }

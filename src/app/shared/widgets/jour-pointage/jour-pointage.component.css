@@ -1,0 +1,29 @@
+.jourDiv{
+    width: 30px;
+}
+.jourDiv input{
+    width: 8px;
+}
+.jourNbrDiv{
+    background-color: #ffffff;
+    padding: 4px
+}
+.jourNomDiv{
+    height:40px ;
+    background-color: #A5A6F6;
+    padding: 4px;
+    display: flex; 
+    justify-content: center; 
+    align-items: center; 
+    font-weight: 500
+}
+.inputDiv{
+    margin-bottom: 10px;  
+    display: flex; 
+    justify-content: center; 
+    padding-top: 4px; 
+}
+.lastDiv{
+    height: 5px; 
+    background-color: #A5A6F6;
+}

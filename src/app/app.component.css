@@ -1,0 +1,18 @@
+.activate-button{
+    background-color: aqua;
+    padding: 10;
+    margin-right: 5px;
+    border: radius 5px;
+    font-family: Arial, Helvetica, sans-serif;
+    text-decoration: none;
+    border-color: black;
+}
+
+.button{
+    background-color: aqua;
+    padding: 10;
+    margin-right: 5px;
+    border: radius 5px;
+    font-family: Arial, Helvetica, sans-serif;
+    text-decoration: none;
+}

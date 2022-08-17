@@ -1,0 +1,36 @@
+<br>
+<h2>Dates multiples</h2>
+<div fxLayout="row" fxLayoutAlign="center center">
+  <mat-card>
+    <mat-card-subtitle>Choisissez des dates multiples</mat-card-subtitle>
+    <mat-form-field>
+      <mat-chip-list #chipList aria-label="Choisissez une date" (click)="picker.open()">
+        <mat-chip
+          *ngFor="let value of model"
+          [selectable]="false"
+          [removable]="true"
+          (removed)="remove(value)"
+        >
+          {{ value | date }}
+          <mat-icon matChipRemove *ngIf="true">annuler</mat-icon>
+        </mat-chip>
+        <input
+          [value]="resetModel"
+          matInput
+          [matDatepicker]="picker"
+          placeholder="Choisissez une date"
+          (dateChange)="dateChanged($event)"
+          [matChipInputFor]="chipList"
+          [min]="minDate"
+          hidden
+        />
+      </mat-chip-list>
+      <mat-datepicker-toggle matPrefix [for]="picker"></mat-datepicker-toggle>
+      <mat-datepicker
+        #picker
+        [startAt]="init"
+        [dateClass]="dateClass"
+      ></mat-datepicker>
+    </mat-form-field>
+  </mat-card>
+</div>

@@ -1,0 +1,55 @@
+<mat-card>
+  <mat-card-title>Demander un congé</mat-card-title>
+  <br>
+  <mat-card-subtitle>Choisissez des intervalles de dates ou des dates multiples</mat-card-subtitle>
+<!--
+  <nav mat-tab-nav-bar dynamicHeight>
+    <a mat-tab-link *ngFor="let tabItem of tabs" [routerLink]="tabItem.route" routerLinkActive #rla="routerLinkActive"
+      [active]="rla.isActive">
+      {{tabItem.label}}
+    </a>
+  </nav>
+
+    <router-outlet></router-outlet> -->
+
+    <mat-tab-group>
+      <mat-tab>
+        <ng-template mat-tab-label>
+          Intervalle de dates
+        </ng-template>
+        <app-demande-conge (onCongeRangeUpdated)="updateCongeRange($event)"></app-demande-conge>
+      </mat-tab>
+
+      <mat-tab>
+        <ng-template mat-tab-label>
+          Dates multiples
+        </ng-template>
+        <app-demandeMultipleDays (onModelCongeChanged)="updateCongeMultiDays($event)"></app-demandeMultipleDays>
+      </mat-tab>
+    </mat-tab-group>
+    <br>
+    <br>
+    <mat-form-field appearance="fill" [style.width.px]=400 >
+      <mat-label>- - Selectionné votre motif - -</mat-label>
+      <mat-select [(ngModel)]="selectedMotif" name="motif">
+        <mat-option>- - Selectionné votre motif - -</mat-option>
+        <mat-option *ngFor="let motif of motifs" [value]="motif">{{motif}}</mat-option>
+      </mat-select>
+
+      <!-- <mat-error *ngIf="selected.hasError('required')">You must make a selection</mat-error>
+      <mat-error *ngIf="selected.hasError('pattern') && !selected.hasError('required')">
+          Your selection is invalid
+      </mat-error> -->
+
+    </mat-form-field>
+    <br>
+    <p> nombre de jours sélectionnés : {{nbrOfSelectedDates}}</p>
+    <br>
+    <p *ngIf="diffSolde==0" class="noSoldeClass"> Solde :  {{soldeRemainings()}}</p>
+    <p *ngIf="diffSolde!=0" class="Solde"> Solde :  {{soldeRemainings()}} </p>
+  <!-- <app-demandeMultipleDays [model]="model" (modelChanged)="modelChangeHandler($event)"></app-demandeMultipleDays> -->
+    <br>
+  <mat-card-actions align="end" style="padding-bottom: 10px;">
+    <button mat-stroked-button (click)="openSnackBar('Votre demande est en cours de traitement','ok')" [disabled]="diffSolde==0" (click)="onSubmit()">Soumettre</button>
+  </mat-card-actions>
+</mat-card>

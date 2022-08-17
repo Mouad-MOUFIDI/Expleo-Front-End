@@ -1,0 +1,92 @@
+<br>
+<h2>Intervalle de date</h2>
+<div fxLayout="row" fxLayoutAlign="center center">
+<mat-card>
+  <mat-card-subtitle>Choisissez un des intervalles de date</mat-card-subtitle>
+<div fxLayout="row" fxLayoutGap="20px"  style="padding-bottom: 30px;padding-top: 0px;" >
+  <form [formGroup]="form"  >
+    <div fxLayout="column" fxLayoutGap="20px" style="padding-bottom: 0px;padding-top: 0px">
+      <div fxLayout="row" fxLayoutGap="20px"  style="padding-bottom: 0px;padding-top: 20px;">
+        <div style="padding-top: 20px;">
+          <p>Durée du congé</p>
+        </div>
+        <div>
+          <mat-form-field appearance="fill">
+            <mat-label>Entrer un intervalle de date</mat-label>
+            <mat-date-range-input [min]="minDate" [rangePicker]="picker" [formGroup]="range" [disabled]="diffSolde==0">
+              <input matStartDate formControlName="start"  placeholder="Start date">
+              <input matEndDate formControlName="end"  placeholder="End date">
+            </mat-date-range-input>
+            <mat-hint>MM/DD/YYYY – MM/DD/YYYY</mat-hint>
+            <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+            <mat-date-range-picker #picker>
+              <mat-date-range-picker-actions>
+                <button mat-button matDateRangePickerCancel>Cancel</button>
+                <button mat-raised-button color="primary" (click)="addPM()" matDateRangePickerApply>Apply</button>
+              </mat-date-range-picker-actions>
+            </mat-date-range-picker>
+          </mat-form-field>
+
+          <!-- <p> Start: {{range.value.start | date}}
+            End: {{range.value.end | date}} </p> -->
+            <br>
+            <div formArrayName="ranges_formArray" style="padding-top: 10px;">
+              <fieldset>
+                <legend>Choisissez des intervalles de jours:</legend>
+                <table class="table table-hover">
+                  <tr *ngFor= "let pm of form.get('ranges_formArray')!.value; let id = index">
+                    <td>
+                      <mat-checkbox color="primary" (change)="onCheckboxChange($event, id)"  [value]="pm.value" >Start : {{pm.start | date}} | End : {{pm.end | date}}</mat-checkbox>
+                    </td>
+                    <td>
+                      <span class="table-remove">
+                        <button mat-raised-button type="button" class="example-button-row" (click)="removeRange(id)">Supprimer</button>
+                      </span>
+                    </td>
+                  </tr>
+                </table>
+              </fieldset>
+            </div>
+            <br>
+            <p> nombre de jours des intervalles sélectionnés : {{daysOfRanges}}</p>
+            <br>
+            <p>nombre de jour cochés : {{nbrOfDaysChecked}}</p>
+            <!-- <p *ngIf="diffSolde==0" class="noSoldeClass"> Solde :  {{soldeRemainings()}}</p>
+            <p *ngIf="diffSolde!=0" class="Solde"> Solde :  {{soldeRemainings()}} </p> -->
+        </div>
+      </div>
+
+      <!-- <div fxLayout="row" fxLayoutGap="20px"  style="padding-left: 60px; padding-bottom: 30px;padding-top: 0px; align-self:flex-start; ">
+        <div style="padding-top: 20px;">
+          <p>Motif</p>
+        </div>
+        <div>
+          <mat-form-field appearance="fill" [style.width.px]=260>
+            <mat-label>motif</mat-label>
+            <mat-select formControlName="motif">
+              <mat-option value="maladie">Maladie</mat-option>
+              <mat-option value="paye">Payé</mat-option>
+              <mat-option value="annuel">Annuel</mat-option>
+              <mat-option value="sans_solde">Sans solde</mat-option>
+              <mat-option value="formation">Formation</mat-option>
+              <mat-option value="maternite">Maternité</mat-option>
+            </mat-select>
+          </mat-form-field>
+        </div>
+
+      </div>
+      <div style="align-self:flex-end;">
+        <button [disabled]="diffSolde==0" mat-raised-button color="primary" type="submit">Enregister</button>
+      </div> -->
+    </div>
+  </form>
+
+</div>
+</mat-card>
+</div>
+
+
+
+
+
+

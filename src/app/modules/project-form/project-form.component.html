@@ -1,0 +1,130 @@
+<div fxLayout="row" fxLayoutGap="10%"  style="padding-bottom: 30px;padding-top: 20px; " >
+  <p style="align-self:flex-start;">Ajouter un projet</p>
+
+<div fxLayout="row" fxLayoutGap="20px"  style="padding-bottom: 30px;padding-top: 0px;">
+  <form [formGroup]="form" (ngSubmit)="onSubmit(form.value)" >
+      <div fxLayout="column" fxLayoutGap="0px" style="padding-bottom: 30px;padding-top: 50px">
+        <div fxLayout="row" fxLayoutGap="20px"  style="padding-bottom: 0px;padding-top: 0px; align-self:flex-end;">
+          <div style="padding-top: 20px;">
+            <p>Nom de projet</p>
+          </div>
+          <div>
+              <mat-form-field class="example-full-width" appearance="fill" [style.width.px]=260>
+                <mat-label>Nom de projet</mat-label>
+                <input
+                matInput
+                formControlName="nomProjet"
+                id="nomProjet"
+                type="text"
+                placeholder="Entrer le nom de projet">
+              </mat-form-field>
+          </div>
+
+        </div>
+        <div fxLayout="row" fxLayoutGap="20px"  style="padding-bottom: 0px;padding-top: 0px; align-self:flex-end;">
+          <div style="padding-top: 20px;">
+            <p>Département</p>
+          </div>
+          <div>
+              <mat-form-field class="example-full-width" appearance="fill" [style.width.px]=260>
+                <mat-label>Nom de département</mat-label>
+                <input
+                matInput
+                formControlName="nomDepartement"
+                id="nomDepartement"
+                type="text"
+                placeholder="Entrer le nom de département">
+              </mat-form-field>
+          </div>
+
+        </div>
+
+        <div fxLayout="row" fxLayoutGap="20px"  style="padding-bottom: 0px;padding-top: 0px; align-self:flex-end; ">
+          <div style="padding-top: 20px;">
+            <p>Entité</p>
+          </div>
+          <div>
+            <mat-form-field appearance="fill" [style.width.px]=260>
+              <mat-label >entité</mat-label>
+              <mat-select [(value)]="entite" formControlName="entite">
+                <mat-option value="administrateur">Administrateur</mat-option>
+                <mat-option value="operationnel">Opérationnel</mat-option>
+              </mat-select>
+            </mat-form-field>
+          </div>
+
+        </div>
+
+        <div *ngIf="entite=='operationnel'" fxLayout="row" fxLayoutGap="20px"  style="padding-bottom: 0px;padding-top: 0px; align-self:flex-end;">
+          <div style="padding-top: 20px;">
+            <p>SOP</p>
+          </div>
+          <div >
+              <mat-form-field class="example-full-width" appearance="fill" [style.width.px]=260>
+                <mat-label>SOP</mat-label>
+                <input matInput
+                formControlName="sop"
+                id="sop"
+                type="text"
+                placeholder="SOP">
+              </mat-form-field>
+          </div>
+
+        </div>
+        <div *ngIf="entite=='operationnel'" fxLayout="row" fxLayoutGap="20px"  style="padding-bottom: 0px;padding-top: 0px; align-self:flex-end;">
+          <div style="padding-top: 20px;">
+            <p>Code projet</p>
+          </div>
+          <div>
+              <mat-form-field class="example-full-width" appearance="fill" [style.width.px]=260>
+                <mat-label>Code projet</mat-label>
+                <input matInput
+                formControlName="codeProjet"
+                id="codeProjet"
+                type="text"
+                placeholder="Entrer le code de projet">
+              </mat-form-field>
+          </div>
+
+        </div>
+        <div *ngIf="entite=='operationnel'" fxLayout="row" fxLayoutGap="20px"  style="padding-bottom: 0px;padding-top: 0px; align-self:flex-end;">
+          <div style="padding-top: 20px;">
+            <p>Lot</p>
+          </div>
+          <div>
+              <mat-form-field class="example-full-width" appearance="fill" [style.width.px]=260>
+                <mat-label>Lot</mat-label>
+                <input matInput
+                formControlName="lot"
+                id="lot"
+                type="lot"
+                placeholder="Lot">
+              </mat-form-field>
+          </div>
+
+        </div>
+        <div fxLayout="row" fxLayoutGap="20px"  style="padding-bottom: 0px;padding-top: 0px; align-self:flex-end;">
+          <div style="padding-top: 20px;">
+            <p>Lieu d'activité</p>
+          </div>
+          <div>
+              <mat-form-field class="example-full-width" appearance="fill" [style.width.px]=260>
+                <mat-label>Lieu d'activité</mat-label>
+                <input matInput
+                formControlName="lieuActivite"
+                id="lieuActivite"
+                type="text"
+                placeholder="Entrer le lieu d'activité">
+              </mat-form-field>
+          </div>
+
+        </div>
+        <div style="padding-top: 20px; align-self:flex-end;">
+          <button mat-raised-button color="primary" type="submit">Enregister</button>
+        </div>
+      </div>
+</form>
+</div>
+
+</div>
+
